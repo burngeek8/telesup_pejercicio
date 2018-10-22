@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Primer Ejercicio</title>
+</head>
+<body>
+    <form name="form" action="" method="post">
+        <div>
+            <table id="divInsertar">
+                <tr>
+                    <td colspan="2">Ingrese Numero: </td>
+                </tr>
+                <tr>
+                    <td><input type="text" size="15" name="cantidad1" id="cantidad1"></td>
+                    <td><input type="button" value="Agregar" onclick="agregarItem('divInsertar')"></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <script>
+        var linML = 1;
+        function agregarItem(nomDiv)
+        {
+               var canti;
+               var strHtml;
+               var returnObj = document.getElementById(nomDiv).innerHTML;
+               if(nomDiv == "divInsertar")
+               {
+                   linML++;
+                   strHtml = `<tr>
+                                <td><input type="text" size="15" name="cantidad1" id="cantidad1${linML}"></td>
+                            </tr>`;
+               }
+               returnObj = returnObj.slice(0,-16)+strHtml;
+               document.all(nomDiv).innerHTML=returnObj;
+        }
+    </script>
+</body>
+</html>
